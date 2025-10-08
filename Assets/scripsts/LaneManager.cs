@@ -3,13 +3,14 @@ using UnityEngine;
 public class LaneManager : MonoBehaviour
 {
     [SerializeField]
+    private Lane[] lanes;
 
-    privata Lane[] lane;
-
-    public Transform GatFrameInLane()
+    public Transform GetFrameInLane()
     {
         int laneIndex = Random.Range(0, lanes.Length);
-        Lane selactedLae = Random.Range(0, selectedLane.Frames.Count);
-        return selected selectedLane.Frames[frame]
+        Lane selectedLane = lanes[laneIndex];
+        int frameIndex = Random.Range(0, selectedLane.Frames.Count);
+        return selectedLane.Frames[frameIndex];
     }
 }
+
