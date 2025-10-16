@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
@@ -10,6 +11,10 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private LayerMask enemiesLayer;
+    [SerializeField]
+    private float raycastOffset = 2f;
+    [SerializeField]
+    private UnityEvent<Transform> onAttackTarget;
     private bool isAttacking = false;
     private Coroutine attackCoroutine;
     private Health targetHealth;
@@ -28,22 +33,24 @@ public class Enemy : MonoBehaviour
         if (!isAttacking)
         {
             transform.Translate(Vector3.left * enemyData.speed * Time.deltaTime);
-            Vector3 forward = transform.TransformDirection(Vector3.forward);
+            Vector3 forward = transform.TransformDirection(Vector3.left);
+            Vector3 rayOrigin = transform.position + Vector3.up * raycastOffset;
             if (Physics.Raycast(transform.position, forward, out RaycastHit hit, enemyData.attackRange, enemiesLayer))
             {
                 isAttacking = true;
                 targetHealth = hit.collider.GetComponent<Health>();
                 attackCoroutine = StartCoroutine(Attack());
             }
-            Debug.DrawRay(transform.position, forward * enemyData.attackRange, Color.red);
+            Debug.DrawRay(rayOrigin, forward * enemyData.attackRange, Color.red);
         }
     }
     private IEnumerator Attack()
     {
         while (targetHealth.CurrentHealth > 0)
         {
-            animator.Play(enemyData.attackAnimation);
-            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+            animator.Play(enemyData.attackAnimation, 0, 0f);
+            yield return new WaitForSeconds(enemyData.attackDuration);
+            onAttackTarget?.Invoke(targetHealth.transform);
             targetHealth.TakeDamage(enemyData.damage);
             yield return new WaitForSeconds(enemyData.timeBetweenAttacks);
         }
