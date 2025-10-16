@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     {
         health.InitializeHealth(enemyData.health);
         StartLooking();
+        SoundManager.Instance.Play("zombie_appear")
     }
     private void StartLooking()
     {
@@ -48,6 +49,7 @@ public class Enemy : MonoBehaviour
     {
         while (targetHealth.CurrentHealth > 0)
         {
+            SoundManager.Instance.Play("zombie_attack")
             animator.Play(enemyData.attackAnimation, 0, 0f);
             yield return new WaitForSeconds(enemyData.attackDuration);
             onAttackTarget?.Invoke(targetHealth.transform);
@@ -59,6 +61,7 @@ public class Enemy : MonoBehaviour
     }
     public void Die()
     {
+        SoundManager.Instance.Play("zombie_die");
         StartCoroutine(DieRoutine());
     }
     private IEnumerator DieRoutine()
