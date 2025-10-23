@@ -10,38 +10,75 @@ public class Gun : MonoBehaviour
     private GunData gunData;
     [SerializeField]
 
-    private InstantiePoolObjects bulletPool;
+    private InstantiatePoolObjects bulletPool;
     [SerializeField]
 
     private Transform bulletPivot;
+    [SerializeField]
+
+    private LayerMask enemiesLayer;
+    [SerializeField]
+
+    private float raycastOffset = 2f;
+    [SerializeField]
+
+    private Animator animator;
+
+    private bool isShooting = false;
+
+    private Health enemyHealth;
 
     private Coroutine shootCoroutine;
 
     private void OnEnable()
     {
+        enemyHealth = null;
+        isShooting = false;
         health.InitializeHealth(gunData.maxHealth);
-        Soundmanager.instance.Play(gunData.appearSoundName);
-        shootCoroutine = StartCoroutine(shootCoroutine());
+        animator.Play(gunData.idleanimationName, 0, 0f);
+        //SoundManager.instance.Play(gunData.appearSoundName);
+    }
+
+    private void Update()
+    {
+        if (!isShooting && health.CurrentHealth> 0)
+        {
+            Vector3 right = tranform.TransformDirection(Vector3.right);
+            if (Physics.Raycast(transform.position + Vector3.up * right, out RaycastHit hit, gunData.range,enemiesLayer))
+            {
+                isShooting = true;
+                currentEnemy = hit.collider.GetComponent<Health>();
+                shootCoroutine = StartCoroutine(ShootRoutine());
+            }
+            Debug.DrawRay(tranform.position, right * gunData.range, Color.blue);
+        }
     }
 
     private IEnumerator ShootRoutine()
     {
-        
-        while (true)
+
+        while (enemyHealth && enemyHealth.CurrentHelath > 0)
         {
-            bulletPool.InstantiateObject(bulletPivot);
-            SoundManager.instantiate.Play(gunData.shootSoundName);
             yield return new WaitForSeconds(gunData.fireRate);
-}
+            bulletPool.InstantiateObject(bulletPivot);
+            SoundManager.instance.Play(gunData.shootSoundName);
+
+        }
+        isShooting = false;
+        enemyHealth = null;
     }
     
     public void Die()
 {
-    if (shootCoroutine != null)
-    {
-        StopCoroutine(shootCoroutine);
-    }
-    SoundManager.instance.Play(gunData.ShootName);
-    gameObject.SetActive(false);
+        if (shootCoroutine != null)
+        {
+            StopCoroutine(shootCoroutine);
+        }
+        animator.Play(gunData.dieAnimationName, 0, 0f);
+        isShooting = false;
+        enemyHealth = null;
+        SoundManager.instance.Play(gunData.dieShootName);
+        StartCoroutine(DieRoutine());
+}
 }
 }
