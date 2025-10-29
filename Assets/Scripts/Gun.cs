@@ -24,11 +24,18 @@ public class Gun : MonoBehaviour
 
     private Animator animator;
 
+    private bool _isActive = false;
+
     private bool isShooting = false;
 
     private Health enemyHealth;
 
     private Coroutine shootCoroutine;
+
+    public bool isActive
+    {
+        set { _isActive = value;  }
+    }
 
     private void OnEnable()
     {
@@ -41,7 +48,7 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
-        if (!isShooting && health.CurrentHealth> 0)
+        if (!isActive && !isShooting && health.CurrentHealth> 0)
         {
             Vector3 right = tranform.TransformDirection(Vector3.right);
             if (Physics.Raycast(transform.position + Vector3.up * right, out RaycastHit hit, gunData.range,enemiesLayer))
