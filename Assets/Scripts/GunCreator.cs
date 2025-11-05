@@ -33,12 +33,17 @@ public class GunCreator : MonoBehaviour
                 }
                 else
                 {
-                    if(hitInfo.collider.CompareTag("floor"))
+                    Debug.Log("Hit" + hitInfo.collider.name);
+                    if (hitInfo.collider.CompareTag("floor"))
                     {
-                    objectPlaced.position = hitInfo.point;
-                }
-            }
+                        objectPlaced.position = hitInfo.point;
+                    }
+                    objectPlaced = false;
+                    currentStep = null;
 
+                }
+
+            }
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -48,6 +53,9 @@ public class GunCreator : MonoBehaviour
             }
             else
             {
+                BasePlant plant = objectToPlace.GetComponent<BasePlant>();
+                plant.IsActive = true;
+                plant.currentStep = currentStep;
                 currentStep.IsOccupied = true;
             }
             objectToPlace = null;

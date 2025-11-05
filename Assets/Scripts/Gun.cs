@@ -41,9 +41,10 @@ public class Gun : MonoBehaviour
     {
         enemyHealth = null;
         isShooting = false;
+        isActive = false;
         health.InitializeHealth(gunData.maxHealth);
         animator.Play(gunData.idleanimationName, 0, 0f);
-        //SoundManager.instance.Play(gunData.appearSoundName);
+        SoundManager.instance.Play(gunData.appearSoundName);
     }
 
     private void Update()
@@ -51,6 +52,7 @@ public class Gun : MonoBehaviour
         if (!isActive && !isShooting && health.CurrentHealth> 0)
         {
             Vector3 right = tranform.TransformDirection(Vector3.right);
+            Vector3 rayOrigin = transform.position + Vector3.up * raycastOffset;
             if (Physics.Raycast(transform.position + Vector3.up * right, out RaycastHit hit, gunData.range,enemiesLayer))
             {
                 isShooting = true;
@@ -67,6 +69,7 @@ public class Gun : MonoBehaviour
         while (enemyHealth && enemyHealth.CurrentHelath > 0)
         {
             yield return new WaitForSeconds(gunData.fireRate);
+            animator.Play(gunData.shootAnimationName, 0, 0f);
             bulletPool.InstantiateObject(bulletPivot);
             SoundManager.instance.Play(gunData.shootSoundName);
 
@@ -81,11 +84,13 @@ public class Gun : MonoBehaviour
         {
             StopCoroutine(shootCoroutine);
         }
+        currentStep.isOccupied = false;
+        currentStep = null;
         animator.Play(gunData.dieAnimationName, 0, 0f);
         isShooting = false;
         enemyHealth = null;
         SoundManager.instance.Play(gunData.dieShootName);
-        StartCoroutine(DieRoutine());
+        StartCoroutine(DieRoutine(gunData.dieAnimationName));
 }
 }
 }
