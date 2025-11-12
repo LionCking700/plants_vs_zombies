@@ -1,10 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GunData", menuName = "Scriptable Objects/GunData")]
-
-public class GunData : ScriptableObject
+public class GunData : BaseCharacterData
 {
     [Header("Gun Settings")]
     public float fireRate = 0.5f;
-    public float range = 15;
+    public float range = 15f;
 }

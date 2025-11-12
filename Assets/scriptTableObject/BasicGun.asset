@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67c490ee453d7b43b88720e3f6848ef, type: 3}
+  m_Name: BasicGun
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  actionAssets:
+  - soundName: 
+    animationName: idle
+    actionKey: 0
+  - soundName: 
+    animationName: shoot
+    actionKey: 2
+  - soundName: 
+    animationName: Hit
+    actionKey: 3
+  - soundName: 
+    animationName: appear
+    actionKey: 4
+  - soundName: 
+    animationName: Die
+    actionKey: 5
+  fireRate: 500
+  range: 5000

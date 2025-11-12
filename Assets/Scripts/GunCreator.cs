@@ -4,19 +4,14 @@ using UnityEngine.Events;
 public class GunCreator : MonoBehaviour
 {
     [SerializeField]
-
     private float raycastDistance = 100f;
     [SerializeField]
-
-    private LayerMask targetlayer;
+    private LayerMask targetLayer;
     [SerializeField]
-
     private string stepTag = "Step";
-
-    private Tranform objectToPlace;
-
+    private Transform objectToPlace;
     private bool objectPlaced = false;
-
+    private Step currentStep;
     private void Update()
     {
         if (objectToPlace == null) return;
@@ -27,22 +22,20 @@ public class GunCreator : MonoBehaviour
             {
                 if (hitInfo.collider.CompareTag(stepTag))
                 {
-                    currentstep = hitInfo.collider.GetComponent<stepTag>();
+                    currentStep = hitInfo.collider.GetComponent<Step>();
                     objectToPlace.position = hitInfo.collider.transform.position;
                     objectPlaced = true;
                 }
                 else
                 {
-                    Debug.Log("Hit" + hitInfo.collider.name);
-                    if (hitInfo.collider.CompareTag("floor"))
+                    Debug.Log("Hit: " + hitInfo.collider.name);
+                    if (hitInfo.collider.CompareTag("Floor"))
                     {
-                        objectPlaced.position = hitInfo.point;
+                        objectToPlace.position = hitInfo.point;
                     }
                     objectPlaced = false;
                     currentStep = null;
-
                 }
-
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -55,11 +48,10 @@ public class GunCreator : MonoBehaviour
             {
                 BasePlant plant = objectToPlace.GetComponent<BasePlant>();
                 plant.IsActive = true;
-                plant.currentStep = currentStep;
+                plant.CurrentStep = currentStep;
                 currentStep.IsOccupied = true;
             }
             objectToPlace = null;
-
         }
     }
     public void SetObjectToPlace(Transform objTransform)

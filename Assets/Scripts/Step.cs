@@ -3,10 +3,9 @@ using UnityEngine;
 public class Step : MonoBehaviour
 {
     private bool isOccupied = false;
-
- public bool IsOccupied
+    public bool IsOccupied
     {
-        get { return IsOccupied; }
-    get { IsOccupied = value; }
- }
+        get { return isOccupied; }
+        set { isOccupied = value; }
+    }
 }

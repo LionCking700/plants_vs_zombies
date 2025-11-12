@@ -1,33 +1,30 @@
 using UnityEngine;
 
-public class BaseCharacterData : MonoBehaviour
+public class BaseCharacterData : ScriptableObject
 {
     [Header("Common Settings")]
     public float maxHealth;
     public ActionAssets[] actionAssets;
-
     public string GetAnimationName(ActionKey actionKey)
     {
         foreach (var actionAsset in actionAssets)
         {
             if (actionAsset.actionKey == actionKey)
             {
-                return actionAsset.AnimationName;
+                return actionAsset.animationName;
             }
         }
         return string.Empty;
     }
-
-    public string GetAnimationName(ActionKey actionKey)
+    public string GetSoundName(ActionKey actionKey)
     {
         foreach (var actionAsset in actionAssets)
         {
-            if (actionAssets.actionKey == actionKey)
+            if (actionAsset.actionKey == actionKey)
             {
-                returnactionAsset.soundName;
+                return actionAsset.soundName;
             }
         }
         return string.Empty;
     }
-
 }

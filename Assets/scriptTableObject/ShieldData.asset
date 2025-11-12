@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e0e39d8ea78434fb4e63f0a0140623, type: 3}
+  m_Name: ShieldData
+  m_EditorClassIdentifier: 
+  maxHealth: 150
+  actionAssets:
+  - soundName: 
+    animationName: idle
+    actionKey: 0
+  - soundName: 
+    animationName: appear
+    actionKey: 4
+  - soundName: 
+    animationName: die
+    actionKey: 5
+  - soundName: 
+    animationName: hit
+    actionKey: 3

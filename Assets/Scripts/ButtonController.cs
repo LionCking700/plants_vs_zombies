@@ -1,28 +1,18 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-
 public class ButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [Serializefield]
-
+    [SerializeField]
     public UnityEvent onButtonDown;
-    [Serializefield]
-
+    [SerializeField]
     public UnityEvent onButtonUp;
-
-    public void OnPointerDown(PointerEvenData evenData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         onButtonDown?.Invoke();
     }
-
-    public void OnPointerUp(PointerEventData evenData)
+    public void OnPointerUp(PointerEventData eventData)
     {
-        onButtonDown?.Invoke();
-    }
-
-    public void OnPointerUp(PointerEvenData eventData)
-    {
-        onButtonUp?.invoke();
+        onButtonUp?.Invoke();
     }
 }

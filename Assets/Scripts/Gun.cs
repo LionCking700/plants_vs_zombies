@@ -1,42 +1,22 @@
 using UnityEngine;
 using System.Collections;
 
-public class Gun : MonoBehaviour
+public class Gun : BasePlant
 {
+    [Header("Gun Components")]
     [SerializeField]
-    private Health health;
-    [SerializeField]
-
     private GunData gunData;
     [SerializeField]
-
     private InstantiatePoolObjects bulletPool;
     [SerializeField]
-
     private Transform bulletPivot;
     [SerializeField]
-
     private LayerMask enemiesLayer;
     [SerializeField]
-
     private float raycastOffset = 2f;
-    [SerializeField]
-
-    private Animator animator;
-
-    private bool _isActive = false;
-
     private bool isShooting = false;
-
     private Health enemyHealth;
-
     private Coroutine shootCoroutine;
-
-    public bool isActive
-    {
-        set { _isActive = value;  }
-    }
-
     private void OnEnable()
     {
         enemyHealth = null;
@@ -44,53 +24,49 @@ public class Gun : MonoBehaviour
         isActive = false;
         health.InitializeHealth(gunData.maxHealth);
         animator.Play(gunData.GetAnimationName(ActionKey.Idle), 0, 0f);
-        SoundManager.instance.Play(gunData.GetSoundName(ActionKey.Appear));
+        SoundManager.instance.Play(gunData.GetSoundName(ActionKey.Appear));     
     }
 
     private void Update()
     {
-        if (!isActive && !isShooting && health.CurrentHealth> 0)
+        if (isActive && !isShooting && health.CurrentHealth > 0)
         {
-            Vector3 right = tranform.TransformDirection(Vector3.right);
+            Vector3 right = transform.TransformDirection(Vector3.right);
             Vector3 rayOrigin = transform.position + Vector3.up * raycastOffset;
-            if (Physics.Raycast(transform.position + Vector3.up * right, out RaycastHit hit, gunData.range,enemiesLayer))
+            if (Physics.Raycast(rayOrigin, right, out RaycastHit hit, gunData.range, enemiesLayer))
             {
                 isShooting = true;
-                currentEnemy = hit.collider.GetComponent<Health>();
+                enemyHealth = hit.collider.GetComponent<Health>();
                 shootCoroutine = StartCoroutine(ShootRoutine());
             }
-            Debug.DrawRay(tranform.position, right * gunData.range, Color.blue);
+            Debug.DrawRay(transform.position, right * gunData.range, Color.blue);
         }
     }
 
     private IEnumerator ShootRoutine()
     {
-
-        while (enemyHealth && enemyHealth.CurrentHelath > 0)
+        while (enemyHealth && enemyHealth.CurrentHealth > 0)
         {
             yield return new WaitForSeconds(gunData.fireRate);
             animator.Play(gunData.GetAnimationName(ActionKey.Attack), 0, 0f);
             bulletPool.InstantiateObject(bulletPivot);
-            SoundManager.instance.Play(gunData.shootSoundName);
-
+            SoundManager.instance.Play(gunData.GetSoundName(ActionKey.Attack));
         }
         isShooting = false;
         enemyHealth = null;
     }
-    
+
     public void Die()
-{
+    {
         if (shootCoroutine != null)
         {
             StopCoroutine(shootCoroutine);
         }
-        currentStep.isOccupied = false;
+        currentStep.IsOccupied = false;
         currentStep = null;
-        animator.Play(gunData.dieAnimationName, 0, 0f);
         isShooting = false;
         enemyHealth = null;
         SoundManager.instance.Play(gunData.GetSoundName(ActionKey.Die));
         StartCoroutine(DieRoutine(gunData.GetAnimationName(ActionKey.Die)));
-}
-}
+    }
 }

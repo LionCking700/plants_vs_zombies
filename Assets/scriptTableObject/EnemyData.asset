@@ -12,15 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935438497e419c541bd7f00ac049ea70, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: 
-  attackRange: 5
-  timeBetweenAttacks: 2
-  health: 100
+  maxHealth: 100
+  actionAssets:
+  - soundName: 
+    animationName: Idle
+    actionKey: 0
+  - soundName: 
+    animationName: Walk
+    actionKey: 1
+  - soundName: 
+    animationName: Attack
+    actionKey: 2
+  - soundName: 
+    animationName: Hit
+    actionKey: 3
+  - soundName: 
+    animationName: Die
+    actionKey: 5
+  attackRange: 12
+  timeBetweenAttacks: 1
+  attackDuration: 2
   speed: 5
   damage: 10
   enemyName: Zombie
-  attackAnimation: Attack
-  deathAnimation: Die
-  walkAnimation: Walk
-  hitAnimation: Hit
-  winAnimation: Win
-  idleAnimation: Idle
