@@ -224,9 +224,9 @@ GameObject:
   - component: {fileID: 7543812431222152289}
   - component: {fileID: 5846973710184209349}
   - component: {fileID: 7753286962447673968}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,8 +342,8 @@ MonoBehaviour:
   bulletPivot: {fileID: 9094053616724419676}
   enemiesLayer:
     serializedVersion: 2
-    m_Bits: 64
-  raycastOffset: 50
+    m_Bits: 128
+  raycastOffset: 12
 --- !u!1 &3258004167836684227
 GameObject:
   m_ObjectHideFlags: 0

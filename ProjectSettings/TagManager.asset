@@ -6,6 +6,9 @@ TagManager:
   tags:
   - coin
   - Enemy
+  - Step
+  - Floor
+  - silvercoins
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Player Team
-  - 
+  - Enemy
   - 
   - 
   - 
