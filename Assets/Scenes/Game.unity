@@ -7175,6 +7175,9 @@ MonoBehaviour:
   flowerData: {fileID: 0}
   coinPool: {fileID: 0}
   coinsOffsetY: 0.5
+  onSpawnCoin:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1435465779
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8851,6 +8854,51 @@ MonoBehaviour:
   - {fileID: 1564201494}
   - {fileID: 766962320}
   - {fileID: 1556190723}
+--- !u!1 &1627794156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627794158}
+  - component: {fileID: 1627794157}
+  m_Layer: 0
+  m_Name: Particles pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1627794157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627794156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53435f1c38112b43b1f4816e1edee18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+--- !u!4 &1627794158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627794156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2101142509652688220}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1629407429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12323,6 +12371,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 829695676865764815, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3655392626802544464, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -12371,6 +12423,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7184554476985952666, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      propertyPath: onSpawnCoin.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184554476985952666, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      propertyPath: onSpawnCoin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1627794157}
+    - target: {fileID: 7184554476985952666, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      propertyPath: onSpawnCoin.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184554476985952666, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      propertyPath: onSpawnCoin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InstantiateObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184554476985952666, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      propertyPath: onSpawnCoin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InstantiatePoolObjects, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184554476985952666, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      propertyPath: onSpawnCoin.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7610905655433534711, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
       propertyPath: m_Name
       value: flower
@@ -12381,12 +12457,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5790709347908320461, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1627794158}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7610905655433534711, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1983402342}
   m_SourcePrefab: {fileID: 100100000, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+--- !u!4 &2101142509652688220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5790709347908320461, guid: 14189437cfd4bc546ae136c821b1b698, type: 3}
+  m_PrefabInstance: {fileID: 2101142509652688219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3287569122358369779
 PrefabInstance:
   m_ObjectHideFlags: 0
