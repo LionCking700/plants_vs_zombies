@@ -7,14 +7,13 @@ public class InstantiatePoolObjects : MonoBehaviour
     private List<GameObject> objectPool = new List<GameObject>();
 
     private GameObject currentObject;
-    public void InstantiateObject(Transform target)
+    public void Instantialize()
     {
         currentObject = GetPoolObject();
         if (currentObject != null)
         {
-            currentObject.transform.position = target.position;
-            currentObject.transform.rotation = target.rotation;
-            currentObject.SetActive(true);
+          currentObject = null;
+          objectPool.Clear();
         }
     }
     public void InstantiateObject(Vector3 position)
