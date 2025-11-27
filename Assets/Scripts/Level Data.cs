@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events;
-[CreateassetMenu(fileName = "LevelData", menuName = "Scriptable Objects/Leveldata")]
+[CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/Leveldata")]
+public class LevelData : ScriptableObject
 {
     public InstantiateEnemy[] enemiesToSpawn;
 }

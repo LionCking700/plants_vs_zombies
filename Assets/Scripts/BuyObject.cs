@@ -21,7 +21,7 @@ public class BuyObject : MonoBehaviour
     {
         if (coinsManager.CanBuy(cost))
         {
-            objectPool.InstantiateObject(transform);
+            objectPool.InstantiateObject(transform.position);
             GameObject boughtObject = objectPool.GetCurrentObject();
             onObjectBought?.Invoke(boughtObject.transform);
         }

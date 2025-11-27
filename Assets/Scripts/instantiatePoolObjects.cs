@@ -5,15 +5,20 @@ public class InstantiatePoolObjects : MonoBehaviour
     [SerializeField]
     private GameObject prefab;
     private List<GameObject> objectPool = new List<GameObject>();
-
     private GameObject currentObject;
     public void Instantialize()
+    {
+        currentObject = null;
+        objectPool.Clear();
+    }
+    public void InstantiateObject(Transform target)
     {
         currentObject = GetPoolObject();
         if (currentObject != null)
         {
-          currentObject = null;
-          objectPool.Clear();
+          currentObject.transform.position = target.position;
+          currentObject.transform.rotation = target.rotation;
+          currentObject.SetActive(true);
         }
     }
     public void InstantiateObject(Vector3 position)

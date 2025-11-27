@@ -10,7 +10,7 @@ public class EnemyAssets
 [System.Serializable]
 public class InstantiateEnemy
 {
-    public float spawntime;
+    public float spawnTime;
     public EnemyType enemyType;
     public int laneIndex;
 }

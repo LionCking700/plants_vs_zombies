@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     private float raycastOffset = 2f;
     [SerializeField]
     private UnityEvent<Transform> onAttackTarget;
+public UnityEvent OnDie = new UnityEvent();
+    private UnityEvent onDie = new UnityEvent();
     private bool isAttacking = false;
     private Coroutine attackCoroutine;
     private Health targetHealth;
