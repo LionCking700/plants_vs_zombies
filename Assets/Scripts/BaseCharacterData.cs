@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseCharacterData : MonoBehaviour
+public class BaseCharacterData : ScriptableObject
 {
     [Header("Common Settings")]
     public float maxHealth;

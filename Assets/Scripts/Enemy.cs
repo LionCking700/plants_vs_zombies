@@ -21,12 +21,15 @@ public UnityEvent OnDie = new UnityEvent();
     private Coroutine attackCoroutine;
     private Health targetHealth;
     private Collider collider;
+    private bool isActive = false;
     private void Awake()
     {
         collider = GetComponent<Collider>();
     }
     private void OnEnable()
     {
+        isActive = true;
+        collider.enabled = true;
         health.InitializeHealth(enemyData.maxHealth);
         StartLooking();
         //SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Appear));
@@ -38,7 +41,7 @@ public UnityEvent OnDie = new UnityEvent();
     }
     private void Update()
     {
-        if (!isAttacking && health.CurrentHealth > 0)
+        if (isActive && !isAttacking && health.CurrentHealth > 0)
         {
             transform.Translate(Vector3.left * enemyData.speed * Time.deltaTime);
             Vector3 forward = transform.TransformDirection(Vector3.left);
@@ -54,23 +57,29 @@ public UnityEvent OnDie = new UnityEvent();
     }
     private IEnumerator Attack()
     {
-        while (targetHealth.CurrentHealth > 0)
+        while (isActive && targetHealth != null && targetHealth.CurrentHealth > 0)
         {
-            //SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Attack));
+            SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Attack));
             animator.Play(enemyData.GetAnimationName(ActionKey.Attack), 0,0f);
             yield return new WaitForSeconds(enemyData.attackDuration);
             onAttackTarget?.Invoke(targetHealth.transform);
-            //SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Hit));
+            SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Hit));
             targetHealth.TakeDamage(enemyData.damage);
+            if (targetHealth.CurrentHealth <= 0);
+            {
+                break;
+            }
             yield return new WaitForSeconds(enemyData.timeBetweenAttacks);
         }
+        targetHealth = null;
         attackCoroutine = null;
         StartLooking();
     }
     public void Die()
     {
+        isActive = false;
         collider.enabled = false;
-        //SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Die));
+        SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Die));
         StartCoroutine(DieRoutine());
     }
     private IEnumerator DieRoutine()
@@ -81,7 +90,19 @@ public UnityEvent OnDie = new UnityEvent();
         }
         animator.Play(enemyData.GetAnimationName(ActionKey.Die));
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        onDie?.Invoke();
         gameObject.SetActive(false);
+    }
+    public void Win()
+    {
+        isActive = false;
+        collider.enabled = false;
+        if (attackCoroutine != null)
+        {
+        StopCoroutine(attackCoroutine);
+        }
+        animator.Play(enemyData.GetSoundName(ActionKey.Win));
+        SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Win));
     }
 }
    
