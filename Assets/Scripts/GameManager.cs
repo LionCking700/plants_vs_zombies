@@ -8,14 +8,17 @@ private GameData gameData;
 [SerializeField]
 private EnemyManager enemyManager;
 [SerializeField]
+private PlantManager plantManager;
+[SerializeField]
 private UnityEvent onWinGame;
 [SerializeField]
-private UnityEvent onLosegame;
+private UnityEvent onLoseGame;
 public void StartLevel()
     {
         LevelData currentLevel = gameData.levels[gameData.currentLevelIndex];
         enemyManager.SetEnemiesToSpawn(currentLevel.enemiesToSpawn);
         enemyManager.StartSpawningEnemies();
+        plantManager.SetAbailablePlants(currentLevel.availablePlants);
     }
     public void WinGame()
     {
@@ -23,6 +26,6 @@ public void StartLevel()
     }
     public void LoseGame()
     {
-        onLosegame?.Invoke();
+        onLoseGame?.Invoke();
     }
 }
