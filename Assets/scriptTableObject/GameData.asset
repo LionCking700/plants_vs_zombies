@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   currentLevelIndex: 0
-  levels: []
+  levels:
+  - {fileID: 11400000, guid: f7b11a1b69453634585b8a7153c36113, type: 2}
+  - {fileID: 11400000, guid: df01a917b7e167d46a0476232458d3e7, type: 2}
+  - {fileID: 11400000, guid: abbbead3884c45946820905abf1b17ce, type: 2}
+  - {fileID: 11400000, guid: c2108973e4fd6d249a9ce2706f7cda5e, type: 2}
+  - {fileID: 11400000, guid: 20bc74ebe2d49e54497571575022dffc, type: 2}

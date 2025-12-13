@@ -5,7 +5,6 @@ public class BaseCharacterData : ScriptableObject
     [Header("Common Settings")]
     public float maxHealth;
     public ActionAssets[] actionAssets;
-
     public string GetAnimationName(ActionKey actionKey)
     {
         foreach (var actionAsset in actionAssets)
@@ -17,7 +16,6 @@ public class BaseCharacterData : ScriptableObject
         }
         return string.Empty;
     }
-
     public string GetSoundName(ActionKey actionKey)
     {
         foreach (var actionAsset in actionAssets)
@@ -29,5 +27,4 @@ public class BaseCharacterData : ScriptableObject
         }
         return string.Empty;
     }
-
 }

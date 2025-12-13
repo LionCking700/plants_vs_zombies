@@ -6,7 +6,7 @@ public class InstantiatePoolObjects : MonoBehaviour
     private GameObject prefab;
     private List<GameObject> objectPool = new List<GameObject>();
     private GameObject currentObject;
-    public void Instantialize()
+    public void Initialize()
     {
         currentObject = null;
         objectPool.Clear();
@@ -16,9 +16,9 @@ public class InstantiatePoolObjects : MonoBehaviour
         currentObject = GetPoolObject();
         if (currentObject != null)
         {
-          currentObject.transform.position = target.position;
-          currentObject.transform.rotation = target.rotation;
-          currentObject.SetActive(true);
+            currentObject.transform.position = target.position;
+            currentObject.transform.rotation = target.rotation;
+            currentObject.SetActive(true);
         }
     }
     public void InstantiateObject(Vector3 position)

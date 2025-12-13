@@ -14,6 +14,7 @@ public class InstantiateEnemy
     public EnemyType enemyType;
     public int laneIndex;
 }
+
 public enum EnemyType
 {
     Basic,

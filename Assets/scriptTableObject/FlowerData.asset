@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: FlowerData
   m_EditorClassIdentifier: 
   maxHealth: 50
-  actionAssets: []
+  actionAssets:
+  - soundName: 
+    animationName: Idle
+    actionKey: 0
+  - soundName: 
+    animationName: Appear
+    actionKey: 4
+  - soundName: 
+    animationName: Hit
+    actionKey: 3
+  - soundName: 
+    animationName: Die
+    actionKey: 5
+  - soundName: 
+    animationName: Attack
+    actionKey: 2
   spawnCoinTime: 2
-  coinamount: 1
+  coinAmount: 5

@@ -3,9 +3,9 @@ using System;
 
 public class PlantManager : MonoBehaviour
 {
-[SerializeField]
-private PlantAssets[]plantAssets;
-public void SetAbailablePlants(PlantType[]availablePlants)
+    [SerializeField]
+    private PlantAssets[] plantAssets;
+    public void SetAvailablePlants(PlantType[] availablePlants)
     {
         foreach (var plantAsset in plantAssets)
         {

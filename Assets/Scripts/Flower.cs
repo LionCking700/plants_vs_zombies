@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
+
 public class Flower : BasePlant
 {
     [SerializeField]
@@ -31,7 +32,7 @@ public class Flower : BasePlant
     }
     private void OnEnable()
     {
-        SoundManager.instance.Play(flowerData.GetSoundName(ActionKey.Appear));
+        SoundManager.instance.Play(flowerData.GetSoundName(ActionKey.Die));
         health.InitializeHealth(flowerData.maxHealth);
         animator.Play(flowerData.GetAnimationName(ActionKey.Idle), 0, 0f);
     }
@@ -48,7 +49,7 @@ public class Flower : BasePlant
         {
             yield return new WaitForSeconds(flowerData.spawnCoinTime);
             onSpawnCoin?.Invoke(transform);
-            animator.Play(flowerData.GetAnimationName(ActionKey.Attack),0,0f);
+            animator.Play(flowerData.GetAnimationName(ActionKey.Attack), 0, 0f);
             SoundManager.instance.Play(flowerData.GetSoundName(ActionKey.Attack));
             for (int i = 0; i < flowerData.coinAmount; i++)
             {

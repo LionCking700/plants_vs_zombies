@@ -15,16 +15,16 @@ MonoBehaviour:
   maxHealth: 100
   actionAssets:
   - soundName: 
-    animationName: idle
+    animationName: Idle
     actionKey: 0
   - soundName: 
-    animationName: shoot
+    animationName: Attack
     actionKey: 2
   - soundName: 
     animationName: Hit
     actionKey: 3
   - soundName: 
-    animationName: appear
+    animationName: Appear
     actionKey: 4
   - soundName: 
     animationName: Die

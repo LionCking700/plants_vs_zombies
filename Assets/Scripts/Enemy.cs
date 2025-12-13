@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
@@ -15,8 +16,8 @@ public class Enemy : MonoBehaviour
     private float raycastOffset = 2f;
     [SerializeField]
     private UnityEvent<Transform> onAttackTarget;
-public UnityEvent OnDie = new UnityEvent();
     private UnityEvent onDie = new UnityEvent();
+    public UnityEvent OnDie => onDie;
     private bool isAttacking = false;
     private Coroutine attackCoroutine;
     private Health targetHealth;
@@ -41,12 +42,12 @@ public UnityEvent OnDie = new UnityEvent();
     }
     private void Update()
     {
-        if (isActive && !isAttacking && health.CurrentHealth > 0)
+        if (!isAttacking && health.CurrentHealth > 0)
         {
             transform.Translate(Vector3.left * enemyData.speed * Time.deltaTime);
             Vector3 forward = transform.TransformDirection(Vector3.left);
             Vector3 rayOrigin = transform.position + Vector3.up * raycastOffset;
-            if (Physics.Raycast(rayOrigin, forward, out RaycastHit hit, enemyData.attackRange, enemiesLayer))
+            if (Physics.Raycast(rayOrigin, forward, out RaycastHit hit, enemyData.attackRange, enemiesLayer, QueryTriggerInteraction.Ignore))
             {
                 isAttacking = true;
                 targetHealth = hit.collider.GetComponent<Health>();
@@ -60,12 +61,12 @@ public UnityEvent OnDie = new UnityEvent();
         while (isActive && targetHealth != null && targetHealth.CurrentHealth > 0)
         {
             SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Attack));
-            animator.Play(enemyData.GetAnimationName(ActionKey.Attack), 0,0f);
+            animator.Play(enemyData.GetAnimationName(ActionKey.Attack), 0, 0f);
             yield return new WaitForSeconds(enemyData.attackDuration);
             onAttackTarget?.Invoke(targetHealth.transform);
             SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Hit));
             targetHealth.TakeDamage(enemyData.damage);
-            if (targetHealth.CurrentHealth <= 0);
+            if (targetHealth.CurrentHealth <= 0)
             {
                 break;
             }
@@ -99,11 +100,11 @@ public UnityEvent OnDie = new UnityEvent();
         collider.enabled = false;
         if (attackCoroutine != null)
         {
-        StopCoroutine(attackCoroutine);
+            StopCoroutine(attackCoroutine);
         }
-        animator.Play(enemyData.GetSoundName(ActionKey.Win));
+        animator.Play(enemyData.GetAnimationName(ActionKey.Win));
         SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Win));
     }
 }
-   
+
 
