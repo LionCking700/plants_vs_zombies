@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         collider.enabled = true;
         health.InitializeHealth(enemyData.maxHealth);
         StartLooking();
-        //SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Appear));
+        SoundManager.instance.Play(enemyData.GetSoundName(ActionKey.Appear));
     }
     private void StartLooking()
     {

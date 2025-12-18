@@ -9,7 +9,7 @@ public class Shield : BasePlant
         isActive = false;
         health.InitializeHealth(shieldData.maxHealth);
         animator.Play(shieldData.GetAnimationName(ActionKey.Idle), 0, 0f);
-        //SoundManager.instance.Play(shieldData.GetSoundName(ActionKey.Appear));
+        SoundManager.instance.Play(shieldData.GetSoundName(ActionKey.Appear));
     }
     public void Hit()
     {

@@ -593,9 +593,9 @@ GameObject:
   - component: {fileID: 7184554476985952666}
   - component: {fileID: -6099288392792708117}
   - component: {fileID: 3177164992214128624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: flower
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -657,7 +657,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 29.231033
   m_Center: {x: 1.8766937, y: 0, z: 0}
@@ -680,7 +680,7 @@ MonoBehaviour:
   stepsDetector: {fileID: 477140732936904061}
   flowerData: {fileID: 11400000, guid: 781ea78d3db2f6444a0db186c5970ea4, type: 2}
   coinPool: {fileID: 3422931681207218919}
-  coinsOffsetY: 0.5
+  coinsOffsetY: 10
   onSpawnCoin:
     m_PersistentCalls:
       m_Calls:

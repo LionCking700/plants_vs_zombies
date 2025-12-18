@@ -18,7 +18,7 @@ MonoBehaviour:
     animationName: Idle
     actionKey: 0
   - soundName: 
-    animationName: walk
+    animationName: Walk
     actionKey: 1
   - soundName: 
     animationName: Attack
@@ -29,6 +29,9 @@ MonoBehaviour:
   - soundName: 
     animationName: Die
     actionKey: 5
+  - soundName: 
+    animationName: zombie-terror
+    actionKey: 4
   attackRange: 6
   timeBetweenAttacks: 2
   attackDuration: 4

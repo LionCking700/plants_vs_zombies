@@ -571,7 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 80dccfb06c8c2d74ba345e2930a39290, type: 2}
   health: {fileID: 5361347406764796476}
-  animator: {fileID: 0}
+  animator: {fileID: 1991641426633467667}
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 64

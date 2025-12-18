@@ -177,8 +177,8 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7753286962447673968}
-        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+      - m_Target: {fileID: 7543812431222152289}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
         m_Arguments:
@@ -214,7 +214,7 @@ MonoBehaviour:
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 128
-  raycastOffset: 12
+  raycastOffset: 15
 --- !u!1 &3258004167836684227
 GameObject:
   m_ObjectHideFlags: 0

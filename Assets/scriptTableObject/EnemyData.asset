@@ -29,6 +29,9 @@ MonoBehaviour:
   - soundName: 
     animationName: Die
     actionKey: 5
+  - soundName: zombie-terror
+    animationName: Die
+    actionKey: 4
   attackRange: 12
   timeBetweenAttacks: 1
   attackDuration: 2

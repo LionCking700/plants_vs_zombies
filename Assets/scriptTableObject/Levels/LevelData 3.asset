@@ -21,7 +21,7 @@ MonoBehaviour:
     laneIndex: 3
   - spawnTime: 4
     enemyType: 1
-    laneIndex: 5
+    laneIndex: 4
   - spawnTime: 3
     enemyType: 0
     laneIndex: 2
@@ -48,7 +48,7 @@ MonoBehaviour:
     laneIndex: 4
   - spawnTime: 5
     enemyType: 1
-    laneIndex: 5
+    laneIndex: 3
   - spawnTime: 5
     enemyType: 1
     laneIndex: 3

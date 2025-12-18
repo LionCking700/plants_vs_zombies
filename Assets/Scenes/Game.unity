@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 1693178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 574.1214, y: 22.17709, z: 251.38428}
+  m_LocalPosition: {x: 472.9, y: 10.439164, z: -29.883945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1520,6 +1520,7 @@ GameObject:
   - component: {fileID: 199019730}
   - component: {fileID: 199019732}
   - component: {fileID: 199019731}
+  - component: {fileID: 199019733}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1537,7 +1538,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20.721909, y: 12.2002, z: 11.308}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1286095377}
   - {fileID: 850400828}
@@ -1586,6 +1587,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199019729}
   m_CullTransparentMesh: 1
+--- !u!95 &199019733
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199019729}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0fb7d54cbbcb914eb3158321f762d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &202650351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,7 +1889,7 @@ Transform:
   m_GameObject: {fileID: 284006796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 574.1214, y: 22.17709, z: 251.38428}
+  m_LocalPosition: {x: 464.211, y: 10.4029665, z: -42.898132}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2592,7 +2615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cc3521cf48c02478cb79e2930ced5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 7
   objectPool: {fileID: 1452036208}
   coinsManager: {fileID: 292031042}
   costText: {fileID: 834007117}
@@ -3506,7 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cc3521cf48c02478cb79e2930ced5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 5
   objectPool: {fileID: 1789673345}
   coinsManager: {fileID: 292031042}
   costText: {fileID: 1741549345}
@@ -3718,7 +3741,7 @@ Transform:
   m_GameObject: {fileID: 588988427}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 206.6, y: -2.0736287, z: -20.7}
+  m_LocalPosition: {x: 165.60004, y: -2.0736287, z: -20.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3950,7 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cc3521cf48c02478cb79e2930ced5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 3
   objectPool: {fileID: 1346495620}
   coinsManager: {fileID: 292031042}
   costText: {fileID: 1960867751}
@@ -5643,6 +5666,18 @@ MonoBehaviour:
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2098530289}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: camera-blip
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 121866332}
         m_TargetAssemblyTypeName: GoToScene, Assembly-CSharp
         m_MethodName: LoadSceneWithFade
@@ -7692,7 +7727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cc3521cf48c02478cb79e2930ced5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 7
   objectPool: {fileID: 1308831106}
   coinsManager: {fileID: 292031042}
   costText: {fileID: 1046795040}
@@ -8181,6 +8216,7 @@ GameObject:
   - component: {fileID: 1286095379}
   - component: {fileID: 1286095378}
   - component: {fileID: 1286095380}
+  - component: {fileID: 1286095381}
   m_Layer: 5
   m_Name: PauseTitle
   m_TagString: Untagged
@@ -8198,7 +8234,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.38256273, y: 0.23278263, z: 0.38256273}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 199019730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8287,6 +8323,28 @@ MonoBehaviour:
   onButtonUp:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &1286095381
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286095376}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d85f5db9a669ad944ad02447355c1579, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1286199716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8377151309574368355, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
@@ -8757,7 +8815,7 @@ Transform:
   m_GameObject: {fileID: 1346079715}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 179.2, y: -2.0736287, z: -17.22229}
+  m_LocalPosition: {x: 138.20003, y: -2.0736287, z: -17.22229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9261,68 +9319,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf22a2db10f09a34495e9f83913738c8, type: 3}
---- !u!1 &1485657384
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1485657386}
-  - component: {fileID: 1485657385}
-  m_Layer: 0
-  m_Name: silvercoinsSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1485657385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485657384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5661eec55cac10f40b36f433474d4943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onCoinSpawned:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1314960260}
-        m_TargetAssemblyTypeName: InstantiatePoolObjects, Assembly-CSharp
-        m_MethodName: InstantiateObject
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  laneManager: {fileID: 1644075166}
-  spawnInterval: 3
-  offsetY: 9
---- !u!4 &1485657386
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485657384}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 324.66235, y: 16.7701, z: -43.81}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1489475261
 GameObject:
   m_ObjectHideFlags: 0
@@ -9796,7 +9792,7 @@ Transform:
   m_GameObject: {fileID: 1538837928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 195.8, y: -0.97498924, z: -43.522293}
+  m_LocalPosition: {x: 154.80003, y: -0.97498924, z: -43.522293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9976,6 +9972,18 @@ MonoBehaviour:
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2098530289}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: camera-blip
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 121866332}
         m_TargetAssemblyTypeName: GoToScene, Assembly-CSharp
         m_MethodName: LoadSceneWithFade
@@ -12945,7 +12953,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: game-win
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 75847295}
@@ -12996,7 +13004,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: perdiste
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 75847295}
@@ -13441,7 +13449,7 @@ Transform:
   m_GameObject: {fileID: 1922280451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 262.3, y: 0, z: 0}
+  m_LocalPosition: {x: 221.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13638,7 +13646,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 12
+  m_Text: '5
+
+'
 --- !u!222 &1960867752
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14411,7 +14421,7 @@ Transform:
   m_GameObject: {fileID: 2074398368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 267.1, y: 0, z: 0.6}
+  m_LocalPosition: {x: 226.10004, y: 0, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14547,6 +14557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2098530288}
+  - component: {fileID: 2098530289}
   m_Layer: 0
   m_Name: PauseManager
   m_TagString: Untagged
@@ -14569,6 +14580,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098530289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098530287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79511e1bfb32f27469f35bcca3ad32e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 199019729}
 --- !u!1 &2104540215
 GameObject:
   m_ObjectHideFlags: 0
@@ -14805,7 +14829,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: bright
           m_BoolArgument: 0
         m_CallState: 2
   onCoinCollected2:
@@ -14835,6 +14859,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 75847295}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: bright
+          m_BoolArgument: 0
+        m_CallState: 2
   isActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -14850,7 +14886,6 @@ SceneRoots:
   - {fileID: 292031043}
   - {fileID: 706253055}
   - {fileID: 1437032998}
-  - {fileID: 1485657386}
   - {fileID: 279876151}
   - {fileID: 1314960261}
   - {fileID: 75847296}
@@ -14870,3 +14905,4 @@ SceneRoots:
   - {fileID: 609195213}
   - {fileID: 1190662516}
   - {fileID: 121866333}
+  - {fileID: 2098530288}

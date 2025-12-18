@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2745867523794831647}
   - component: {fileID: 4142866979796094935}
   - component: {fileID: 444118689773778995}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,8 +69,8 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2745867523794831647}
-        m_TargetAssemblyTypeName: Shield, Assembly-CSharp
+      - m_Target: {fileID: 4142866979796094935}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
         m_Arguments:
@@ -81,6 +81,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &444118689773778995
 BoxCollider:
   m_ObjectHideFlags: 0

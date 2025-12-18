@@ -15,13 +15,13 @@ MonoBehaviour:
   enemiesToSpawn:
   - spawnTime: 3
     enemyType: 0
-    laneIndex: 0
+    laneIndex: 3
   - spawnTime: 3
     enemyType: 0
     laneIndex: 3
   - spawnTime: 4
     enemyType: 0
-    laneIndex: 5
+    laneIndex: 2
   - spawnTime: 3
     enemyType: 0
     laneIndex: 2
@@ -30,5 +30,5 @@ MonoBehaviour:
     laneIndex: 4
   - spawnTime: 2
     enemyType: 0
-    laneIndex: 5
+    laneIndex: 4
   availablePlants: 0300000001000000
